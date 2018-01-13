@@ -183,6 +183,9 @@ def test_label_encoder():
     msg = "bad input shape"
     assert_raise_message(ValueError, msg, le.transform, "apple")
 
+    le.fit(["a", "b"])
+    assert_array_equal(le.transform([]), np.array([]))
+
 
 def test_label_encoder_fit_transform():
     # Test fit_transform
